@@ -1,9 +1,10 @@
-# Makefile.PL -- Makefile for PostScript::Fonts
+# Makefile.PL -- Makefile for cpancd
+# $Id: Makefile.PL,v 1.2 2001-04-13 13:17:38+02 jv Exp $
 # Author          : Johan Vromans
-# Created On      : Mon Feb  8 11:46:56 1999
+# Created On      : Tue Apr 12 12:18:38 2001
 # Last Modified By: Johan Vromans
-# Last Modified On: Wed Apr 11 19:55:28 2001
-# Update Count    : 86
+# Last Modified On: Fri Apr 13 13:17:33 2001
+# Update Count    : 12
 # Status          : Stable
 
 # Verify perl version.
@@ -25,14 +26,8 @@ convenient location) to "make install".
 
 EOD
 
-my $ok = 0;
-foreach ( split(/[:;]/, $ENV{PATH}) ) {
-    if ( -f "$_/mkisofs" && -x ) {
-	$ok++;
-	last;
-    }
-}
-unless ( $ok ) {
+# Look for the mkisofs program.
+unless ( findexec ("mkisofs") ) {
     print STDERR <<EOD;
 
 WARNING: cpancd requires the mkisofs program. This program could
@@ -48,8 +43,16 @@ WriteMakefile
    ($] >= 5.005) ?
    ( AUTHOR	=> 'Johan Vromans (jvromans@squirrel.nl)',
      ABSTRACT	=> 'Create a CD-able CPAN subset' ) : (),
-   VERSION      => "1.00",
+   VERSION_FROM => "script/cpancd",
    PREREQ_PM	=> { 'Getopt::Long' => 2.00 },
    EXE_FILES    => [ map { "script/$_" } @scripts ],
    # *.pm files will be picked up automatically from ./lib
  );
+
+sub findexec {
+    my $exec = shift;
+    foreach ( split(/[:;]/, $ENV{PATH}) ) {
+	return 1 if -f "$_/$exec" && -x _;
+    }
+    return;
+}

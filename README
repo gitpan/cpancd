@@ -7,6 +7,9 @@ packages.
 Currently (April 2001) the size of CPAN is about 880Mb, the generated
 subset just over 630Mb. 
 
+Up to date versions of this program will be available on CPAN,
+http://search.cpan.org/search?mode=dist&query=cpancd
+
 This program requires the mkisofs program. This is part of the
 cdrtools package widely available. See, for example,
 ftp://ftp.fokus.gmd.de/pub/unix/cdrecord/
