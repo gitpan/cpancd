@@ -1,0 +1,19 @@
+cpancd creates an ISO image to burn on a CD. It is intended to be
+used to create CD-rommable snapshots of CPAN.
+
+It generates a subset of all CPAN files, by omitting older versions of
+packages.
+
+Currently (April 2001) the size of CPAN is about 880Mb, the generated
+subset just over 630Mb. 
+
+This program requires the mkisofs program. This is part of the
+cdrtools package widely available. See, for example,
+ftp://ftp.fokus.gmd.de/pub/unix/cdrecord/
+
+----------------------------------------------------------------------------
+Johan Vromans                                           jvromans@squirrel.nl
+Squirrel Consultancy                                Haarlem, the Netherlands
+http://www.squirrel.nl                http://www.squirrel.nl/people/jvromans
+PGP Key 2048/4783B14D     http://www.squirrel.nl/people/jvromans/pgpkey.html
+----------------------- "Arms are made for hugging" ------------------------

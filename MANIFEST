@@ -1,0 +1,6 @@
+README
+MANIFEST
+script/cpancd
+Makefile.PL
+t/basic.t
+
